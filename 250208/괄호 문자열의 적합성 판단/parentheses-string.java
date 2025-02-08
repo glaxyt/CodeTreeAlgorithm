@@ -14,8 +14,8 @@ public class Main {
                 if(!s.isEmpty()) {
                     s.pop();
                 } else {
-                    s.push('(');
-                    break;
+                    System.out.println("No");
+                    System.exit(0);
                 }
             }
         }
