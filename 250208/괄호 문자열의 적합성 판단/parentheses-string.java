@@ -13,6 +13,9 @@ public class Main {
             } else {
                 if(!s.isEmpty()) {
                     s.pop();
+                } else {
+                    s.push('(');
+                    break;
                 }
             }
         }
