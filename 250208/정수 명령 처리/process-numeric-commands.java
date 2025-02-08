@@ -1,5 +1,5 @@
-import java.util.Stack
-import java.util.Scanner
+import java.util.Stack;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,10 +10,10 @@ public class Main {
         Stack<Integer> s = new Stack<>();
     
         for(int i = 0; i < n; i++) {
-            String command = st.next();
+            String command = sc.next();
 
             if(command.equals("push")) {
-                int num = nextInt();
+                int num = sc.nextInt();
                 s.push(num);
             } else if(command.equals("pop")) {
                 System.out.println(s.pop());
@@ -26,11 +26,8 @@ public class Main {
                     System.out.println(0);
                 }
             } else {
-                Sytsem.out.println(s.peek());
+                System.out.println(s.peek());
             }
-            
-
         }
-
     }
 }
