@@ -1,29 +1,32 @@
-class stack:
-    def init():
-        arr = []
+class Stack:
+    def __init__(self):
+        self.arr = []
     
-    def push(num):
-        arr.push(num)
+    def push(self, num):
+        self.arr.append(num)
 
-    def pop(num):
-        last = arr.pop()
+    def pop(self):
+        if self.arr == 0:
+            raise Exception("Stack is empty")
+
+        last = self.arr.pop()
         print(last)
 
-    def size(num):
-        print(len(arr))
+    def size(self):
+        print(len(self.arr))
     
-    def empty():
-        if len(arr) == 0:
+    def empty(self):
+        if len(self.arr) == 0:
             print(1)
         else:
             print(0)
 
-    def top():
-        print(arr[-1])
+    def top(self):
+        print(self.arr[-1])
 
 
 n = int(input())
-st = stack()
+st = Stack()
 for i in range(n):
     orders = input().split()
     order = orders[0]
@@ -35,7 +38,7 @@ for i in range(n):
         st.empty()
     elif order == "pop":
         st.pop()
-    elif order = "top":
+    elif order == "top":
         st.top()
     else:
         print("not valid order")
