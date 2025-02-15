@@ -12,8 +12,8 @@ def dfs(cx, cy):
         nx = cx + dx
         ny = cy + dy
         if 0 <= ny < n and 0 <= nx < m:
-            if grid[ny][nx] == 1 and visited[ny][nx] == False:
-                visited[ny][nx] = True;
+            if grid[nx][ny] == 1 and visited[nx][ny] == False:
+                visited[nx][ny] = True;
                 if dfs(nx, ny):
                     return True;
 
