@@ -11,7 +11,7 @@ def dfs(cx, cy):
     for dx, dy in dxys:
         nx = cx + dx
         ny = cy + dy
-        if 0 <= ny < n and 0 <= nx < m:
+        if 0 <= ny < m and 0 <= nx < n:
             if grid[nx][ny] == 1 and visited[nx][ny] == False:
                 visited[nx][ny] = True;
                 if dfs(nx, ny):
