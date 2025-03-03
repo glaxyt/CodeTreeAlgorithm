@@ -1,0 +1,6 @@
+li = list(map(int, input().split()))
+li_sum = sum(li)
+li_avg = li_sum // len(li)
+print(li_sum)
+print(li_avg)
+print(li_sum - li_avg)
