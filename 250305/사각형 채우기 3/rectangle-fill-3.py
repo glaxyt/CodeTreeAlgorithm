@@ -14,7 +14,7 @@ def dp(n):
         return memo[n]
     else:
         for i in range(4, n+1):
-            memo[i] = (2 * memo[i-1]) + (3 * memo[i-2]) + (2 * memo[i-3])
+            memo[i] = ((2 * memo[i-1]) + (3 * memo[i-2]) + (2 * memo[i-3])) % 1000000007
     return memo[n]
 
 print(dp(n))
