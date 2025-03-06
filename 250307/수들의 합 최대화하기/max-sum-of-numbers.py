@@ -4,21 +4,18 @@ def back_tracking(cur_num):
         return
 
     for i in range(n):
-        for j in range(n):
-            if row[i] or col[j]:
-                continue
+        if col[i]:
+            continue
 
-            row[i] = True
-            col[j] = True
+        col[i] = True
 
-            answer.append(grid[i][j])
+        answer.append(grid[cur_num][i])
 
-            back_tracking(cur_num + 1)
+        back_tracking(cur_num + 1)
 
-            answer.pop()
+        answer.pop()
 
-            row[i] = False
-            col[j] = False
+        col[i] = False
 
 
 n = int(input())
