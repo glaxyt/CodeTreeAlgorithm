@@ -4,11 +4,12 @@ n = int(input())
 grid = [list(map(int, input().split())) for _ in range(n)]
 col_visited = [False for _ in range(n)]
 answer = []
-sum_ans = []
+max_ans = -1
 # Please write your code here.
 def permutation_get_min_arg(cur_row):
+    global max_ans
     if cur_row == n:
-        heapq.heappush(sum_ans, -1 * min(answer))
+        max_ans = max(max_ans, min(answer))
         return
 
     for cur_col in range(n):
@@ -24,4 +25,4 @@ def permutation_get_min_arg(cur_row):
         col_visited[cur_col] = False
 
 permutation_get_min_arg(0)
-print(-1 * heapq.heappop(sum_ans))
+print(max_ans)
