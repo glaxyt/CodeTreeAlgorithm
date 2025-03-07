@@ -13,10 +13,10 @@ answer = []
 
 def find_route(cur_node, cur_num):
     global ans
-    global start_node
 
-    if cur_num == n + 1:
-        ans = min(ans, sum(answer) + A[cur_node][start_node])
+    ## 시도 3. 순회가 가능해야한다.
+    if cur_num == n and A[cur_node][0] != 0:
+        ans = min(ans, sum(answer) + A[cur_node][0])
         return
     
     ## cur_node의 이동할 수 있는 배열에서 for문 사용
@@ -33,12 +33,15 @@ def find_route(cur_node, cur_num):
         answer.pop()
         
 visited = [False for i in range(n)]
-start_node = 0
 
+visited[0] = True
 find_route(0, 1)
-    
+
 print(ans)
 
 
 ## 시도 2.
 ## 가지 못하는 간선도 존제한다.
+
+## 시도 3.
+## 순회를 할 수 있는가?
