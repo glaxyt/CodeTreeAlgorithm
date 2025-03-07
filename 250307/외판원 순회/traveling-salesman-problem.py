@@ -21,9 +21,9 @@ def find_route(cur_node, cur_num):
     
     ## cur_node의 이동할 수 있는 배열에서 for문 사용
     for next_node in range(n):
-        if visited[next_node] or cur_node == next_node:
+        if visited[next_node] or A[cur_node][next_node] == 0:
             continue
-        
+
         answer.append(A[cur_node][next_node])
         visited[next_node] = True
 
@@ -42,3 +42,7 @@ for i in range(n):
     visited[i] = False
     
 print(ans)
+
+
+## 시도 2.
+## 가지 못하는 간선도 존제한다.
