@@ -15,7 +15,7 @@ def find_route(cur_node, cur_num):
     global ans
     global start_node
 
-    if cur_num == n - 1:
+    if cur_num == n + 1:
         ans = min(ans, sum(answer) + A[cur_node][start_node])
         return
     
@@ -35,11 +35,7 @@ def find_route(cur_node, cur_num):
 visited = [False for i in range(n)]
 start_node = 0
 
-for i in range(n):
-    visited[i] = True
-    start_node = i
-    find_route(i, 0)
-    visited[i] = False
+find_route(0, 1)
     
 print(ans)
 
