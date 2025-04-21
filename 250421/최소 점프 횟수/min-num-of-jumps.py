@@ -1,27 +1,22 @@
+from collections import deque
+
 n = int(input())
 num = list(map(int, input().split()))
-answer = []
-visited = [100] * n
-# Please write your code here.
-def backtracking(currentIdx, cnt):
+visited = [False] * n
+queue = deque()
+queue.append((0, 0))  # (현재 index, 점프 횟수)
+
+while queue:
+    idx, cnt = queue.popleft()
     
-    if currentIdx == n-1:
-        answer.append(cnt)
-        return
-
-    if cnt > visited[currentIdx]:
-        return
-
-    jump = num[currentIdx]
-    for nextIdx in range(currentIdx, currentIdx + jump + 1):
-        if nextIdx >= n:
-            continue 
-
-        backtracking(nextIdx, cnt + 1)
-
-visited[0] = 0
-backtracking(0, 0)
-if answer:
-    print(min(answer))
+    if idx == n - 1:
+        print(cnt)
+        break
+    
+    for i in range(1, num[idx] + 1):
+        next_idx = idx + i
+        if next_idx < n and not visited[next_idx]:
+            visited[next_idx] = True
+            queue.append((next_idx, cnt + 1))
 else:
     print(-1)
