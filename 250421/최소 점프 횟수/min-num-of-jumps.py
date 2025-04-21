@@ -3,20 +3,23 @@ from collections import deque
 n = int(input())
 num = list(map(int, input().split()))
 visited = [False] * n
-queue = deque()
-queue.append((0, 0))  # (현재 index, 점프 횟수)
+# Please write your code here.
+queue = deque([0])
+visited[0] = 1
 
 while queue:
-    idx, cnt = queue.popleft()
+    cx = queue.pop()
     
-    if idx == n - 1:
-        print(cnt)
+    if cx == n-1:
+        print(visited[cx] - 1)
         break
-    
-    for i in range(1, num[idx] + 1):
-        next_idx = idx + i
-        if next_idx < n and not visited[next_idx]:
-            visited[next_idx] = True
-            queue.append((next_idx, cnt + 1))
+
+    jump = num[cx]
+
+    for i in range(1, jump + 1):
+        nx = cx + i
+        if 0 <= nx < n and not visited[nx]:
+            visited[nx] = visited[cx] + 1
+            queue.appendleft(nx)
 else:
     print(-1)
